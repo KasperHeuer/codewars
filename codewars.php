@@ -460,7 +460,8 @@ echo getMiddle("A") . "\n";        // returns "A"
 
 echo " <br> <br>";
 // opdracht  Tail Swap
-function tail_swap(array $a): array {
+function tail_swap(array $a): array
+{
     // Split each string into two parts using the colon
     list($firstPart1, $secondPart1) = explode(':', $a[0]);
     list($firstPart2, $secondPart2) = explode(':', $a[1]);
@@ -476,3 +477,12 @@ function tail_swap(array $a): array {
 // Examples
 print_r(tail_swap(["abc:def", "ghi:jkl"]));  // returns ["abc:jkl", "ghi:def"]
 print_r(tail_swap(["123:456", "789:012"]));  // returns ["123:012", "789:456"]
+
+// opdracht geese
+function gooseFilter($birds)
+{
+    $geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+    return array_values(array_filter($birds, function ($bird) use ($geese) {
+        return !in_array($bird, $geese);
+    }));
+}
